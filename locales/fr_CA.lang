@@ -5,9 +5,8 @@
  * Those caracters have been removed from the keyboard map until a solution can be found
  * Note that there is an issue with the backslash which will need to be fixed.
  */
-
-#define SHIFT 0x80
-const uint8_t _asciimap[128] =
+ 
+const uint16_t _ascii_custom_map[128] PROGMEM =
 {
 	0x00,             // NUL
   0x00,             // SOH
@@ -139,20 +138,3 @@ const uint8_t _asciimap[128] =
   0x33|ALTGR,       // ~   altgr
   0                 // DEL
 };
-
-// Init var
-bool _altGrMap[128];
-bool _altFine = false;
-
-// Individually define all needed char
-void initAltGr() {
-  _altFine = true;
-  
-  _altGrMap[126] = true; // ~
-  _altGrMap[123] = true; // {
-  _altGrMap[91] = true;  // [
-  _altGrMap[93] = true;  // ]
-  _altGrMap[125] = true; // }
-  _altGrMap[92] = true;  // bslash
-  _altGrMap[64] = true;  // @
-}

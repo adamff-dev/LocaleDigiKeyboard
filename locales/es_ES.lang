@@ -4,8 +4,7 @@
  *      and ~, ^ and `, fixed by BlueArduino20.
  */
 
-#define SHIFT 0x80
-const uint8_t _asciimap[128] =
+const uint16_t _ascii_custom_map[128] PROGMEM =
 {
   0x00,             // NUL
   0x00,             // SOH
@@ -43,7 +42,7 @@ const uint8_t _asciimap[128] =
   0x2c,          //  ' '
   0x1e|SHIFT,    // !
   0x1f|SHIFT,    // "
-  0x20,          // #
+  0x20|ALT,          // #
   0x21|SHIFT,    // $
   0x22|SHIFT,    // %
   0x23|SHIFT,    // &
@@ -72,7 +71,7 @@ const uint8_t _asciimap[128] =
   0x27|SHIFT,      // =
   0x64|SHIFT,      // > 
   0x2d|SHIFT,      // ?
-  0x1f,            // @
+  0x1f|ALT,            // @
   0x04|SHIFT,      // A
   0x05|SHIFT,      // B
   0x06|SHIFT,      // C
@@ -99,9 +98,9 @@ const uint8_t _asciimap[128] =
   0x1b|SHIFT,      // X
   0x1c|SHIFT,      // Y
   0x1d|SHIFT,      // Z
-  0x2f,          // [
-  0x35,          // bslash
-  0x30,          // ]
+  0x2f|ALT,          // [
+  0x35|ALT,          // bslash
+  0x30|ALT,          // ]
   0x2f|SHIFT,    // ^
   0x38|SHIFT,    // _
   0x2f, 	       // `
@@ -131,29 +130,9 @@ const uint8_t _asciimap[128] =
   0x1b,          // x
   0x1c,          // y
   0x1d,          // z
-  0x34,    // {
-  0x1e,    // |
-  0x32,    // }
-  0x21,    // ^
-  0        // DEL
-
+  0x34|ALT,    // {
+  0x1e|ALT,    // |
+  0x32|ALT,    // }
+  0x21|ALT,    // ^
+  0 // DEL
 };
-
-// Init var         
-bool _altGrMap[128];
-bool _altFine = false;
-
-// Individually define all needed char
-void initAltGr() {
-  _altFine = true;
-
-  _altGrMap[126] = true; // ~
-  _altGrMap[123] = true; // {
-  _altGrMap[91] = true;  // [
-  _altGrMap[93] = true;  // ]
-  _altGrMap[125] = true; // }
-  _altGrMap[92] = true;  // bslash
-  _altGrMap[124] = true; // |
-  _altGrMap[64] = true;  // @
-  _altGrMap[35] = true; // #
-}

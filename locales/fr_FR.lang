@@ -2,8 +2,7 @@
  * _asciimap took from internet, fixed by Thecakeisgit
  */
 
-#define SHIFT 0x80
-const uint8_t _asciimap[128] =
+const uint16_t _ascii_custom_map[128] PROGMEM =
 {
    0x00,             // NUL
    0x00,             // SOH

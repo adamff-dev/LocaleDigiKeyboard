@@ -1,6 +1,6 @@
-#define SHIFT 0x80
-const uint8_t _asciimap[128] =
+const uint16_t _ascii_custom_map[128] PROGMEM =
 {
+
    0x00,             // NUL
    0x00,             // SOH
    0x00,             // STX
@@ -130,23 +130,3 @@ const uint8_t _asciimap[128] =
    0x38|ALTGR,    // ~
    0        // DEL
 };
-
-// Init var
-bool _altGrMap[128];
-bool _altFine = false;
-
-// Individually define all needed char
-void initAltGr() {
-  _altFine = true;
-
-  _altGrMap[35] = true; // #
-  _altGrMap[64] = true; // @
-  _altGrMap[91] = true; // [
-  _altGrMap[92] = true; // bslash fixed
-  _altGrMap[93] = true; // ]
-  _altGrMap[96] = true; // `
-  _altGrMap[123] = true; // {
-  _altGrMap[124] = true; // | fixed
-  _altGrMap[125] = true; // } fixed
-  _altGrMap[127] = true; // ~
-}

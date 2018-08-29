@@ -3,8 +3,7 @@
  * 	Updated by brigadinhos with the correct keys for pt_PT keyboard
  */
  
-#define SHIFT 0x80
-const uint8_t _asciimap[128] =
+const uint16_t _ascii_custom_map[128] PROGMEM =
 {
   0x00,             // NUL
   0x00,             // SOH
@@ -135,20 +134,3 @@ const uint8_t _asciimap[128] =
   0x31,          // ~
   0        // DEL
 };
-
-// Init var         
-bool _altGrMap[128];
-bool _altFine = false;
-
-// Individually define all needed char
-void initAltGr() {
-  _altFine = true;
-
-  _altGrMap[91] = true; // [
-  _altGrMap[93] = true; // ]
-
-  _altGrMap[123] = true; // {
-  _altGrMap[125] = true; // }
-
-  _altGrMap[64] = true; // @
-}

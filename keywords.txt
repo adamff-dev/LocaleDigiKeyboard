@@ -1,5 +1,5 @@
 DigiKeyboard	KEYWORD1
-update KEYWORD2
-sendKeyStroke KEYWORD2
-LocaleDigiKeyboard KEYWORD1
-delay KEYWORD2
+update	KEYWORD2
+sendKeyStroke	KEYWORD2
+LocaleDigiKeyboard	KEYWORD1
+delay	KEYWORD2
